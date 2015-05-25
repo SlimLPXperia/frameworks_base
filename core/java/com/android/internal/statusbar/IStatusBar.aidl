@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and 
  * limitations under the License.
  */
- 
+
 package com.android.internal.statusbar;
 
 import android.content.Intent;
@@ -39,6 +39,7 @@ oneway interface IStatusBar
     void notificationLightOff();
     void notificationLightPulse(int argb, int millisOn, int millisOff);
 
+    void setPieTriggerMask(int newMask, boolean lock);
     void showRecentApps(boolean triggeredFromAltTab);
     void hideRecentApps(boolean triggeredFromAltTab, boolean triggeredFromHomeKey);
     void toggleRecentApps();
@@ -50,5 +51,7 @@ oneway interface IStatusBar
     void toggleScreenshot();
     void toggleLastApp();
     void toggleKillApp();
+    void hideHeadsUpCandidate(String packageName);
+    void scheduleHeadsUpClose();
 }
 

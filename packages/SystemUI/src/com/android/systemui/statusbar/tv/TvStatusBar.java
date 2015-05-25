@@ -61,6 +61,7 @@ public class TvStatusBar extends BaseStatusBar {
 
     @Override
     public void disable(int state, boolean animate) {
+        propagateDisabledFlags(state);
     }
 
     @Override
@@ -77,6 +78,7 @@ public class TvStatusBar extends BaseStatusBar {
 
     @Override
     public void topAppWindowChanged(boolean visible) {
+        propagateMenuVisibility(visible);
     }
 
     @Override
@@ -110,6 +112,10 @@ public class TvStatusBar extends BaseStatusBar {
 
     @Override // CommandQueue
     public void showCustomIntentAfterKeyguard(Intent intent) {
+    }
+
+    @Override // CommandQueue
+    public void hideHeadsUpCandidate(String packageName) {
     }
 
     @Override
@@ -159,7 +165,7 @@ public class TvStatusBar extends BaseStatusBar {
     public void scheduleHeadsUpEscalation() {
     }
 
-    @Override
+    @Override // CommandQueue
     public void scheduleHeadsUpClose() {
     }
 
